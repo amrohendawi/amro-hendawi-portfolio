@@ -1,9 +1,8 @@
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Twitter, Code, Brain, Cloud, Database, Wrench, BarChart3 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
-import { SkillBadge } from "@/components/skill-badge"
 import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
@@ -203,25 +202,179 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="My Skills" subtitle="Technologies I work with" />
+          <SectionHeading title="My Skills" subtitle="Technologies and expertise I work with" />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
-            <SkillBadge name="Python" level={95} />
-            <SkillBadge name="GenAI/LLMs" level={90} />
-            <SkillBadge name="LangChain" level={85} />
-            <SkillBadge name="AWS" level={85} />
-            <SkillBadge name="Azure" level={80} />
-            <SkillBadge name="Kubernetes" level={85} />
-            <SkillBadge name="FastAPI" level={90} />
-            <SkillBadge name="Java" level={80} />
-            <SkillBadge name="JavaScript" level={75} />
-            <SkillBadge name="Docker" level={85} />
-            <SkillBadge name="MongoDB" level={80} />
-            <SkillBadge name="PostgreSQL" level={75} />
-            <SkillBadge name="MLflow" level={80} />
-            <SkillBadge name="Prometheus" level={75} />
-            <SkillBadge name="Grafana" level={75} />
-            <SkillBadge name="Git/CI/CD" level={85} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            {/* Programming Languages */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-blue-500/20">
+                    <Code className="h-5 w-5 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Programming Languages</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Python</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Java</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">JavaScript</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">C/C++</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">C#</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Haskell</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* GenAI & LLMs */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-purple-500/20">
+                    <Brain className="h-5 w-5 text-purple-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">GenAI & LLMs</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Ollama</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Unsloth</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">vLLM</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Llama.cpp</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Q-LoRA</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LangGraph</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LangChain</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LlamaIndex</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">CrewAI</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">AutoGen</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Flowise</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Haystack</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Claude</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">MCP servers</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* Industry AI Knowledge */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-emerald-500/20">
+                    <Brain className="h-5 w-5 text-emerald-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Industry AI Knowledge</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">GenAI Applications</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">LLM Fine-tuning</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">RAG</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Prompt Engineering</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Conversational AI</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">NLP/NLU</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Synthetic Data</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Semantic Search</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">MLOps</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">LLMOps</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* Cloud Computing & DevOps */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-cyan-500/20">
+                    <Cloud className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Cloud & DevOps</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AWS</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Azure</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">GCP</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">OpenStack</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Kubernetes</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Helm</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Git</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">CI/CD</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Prometheus</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Grafana</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Splunk</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* Databases & Vector Stores */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-orange-500/20">
+                    <Database className="h-5 w-5 text-orange-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Databases & Vector Stores</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Qdrant</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">ChromaDB</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">FAISS</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Pinecone</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">MongoDB</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">PostgreSQL</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Supabase</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Prisma</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Drizzle</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Liquibase</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* Backend & MLOps */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-green-500/20">
+                    <Wrench className="h-5 w-5 text-green-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Backend & MLOps</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">FastAPI</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Flask</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Spring Boot</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Nginx</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">REST API</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">OpenAPI</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">AWS Bedrock</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Vertex AI</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Azure AI Studio</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Kubeflow</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Langfuse</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
+
+            {/* Data Science & ML */}
+            <GlassmorphicCard>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-pink-500/20">
+                    <BarChart3 className="h-5 w-5 text-pink-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Data Science & ML</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">PyTorch</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">TensorFlow</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">spaCy</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">NLTK</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">pandas</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">scikit-learn</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">numpy</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">matplotlib</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">W&B</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">MLflow</span>
+                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">Jupyter</span>
+                </div>
+              </div>
+            </GlassmorphicCard>
           </div>
         </div>
       </section>
