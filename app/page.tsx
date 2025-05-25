@@ -72,7 +72,7 @@ export default function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/amrohendawi/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/amro-hendawi/" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -472,7 +472,7 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/amrohendawi/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/amro-hendawi/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
