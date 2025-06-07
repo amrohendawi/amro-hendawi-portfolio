@@ -24,7 +24,7 @@ const projects = [
 		image: "/images/projects/bert4rec/autoregressive_models.drawio.png",
 	},
 	{
-		title: "Enterprise Network Monitoring",
+		title: "eBPF Real-time Network Monitoring",
 		description:
 			"Industry 4.0 solution using eBPF & XDP for sub-millisecond detection latency across multi-cloud environments.",
 		tags: ["eBPF", "XDP", "Network Monitoring", "Multi-Cloud"],
@@ -45,7 +45,7 @@ const projects = [
 			"Private cloud infrastructure using Kolla-Ansible on Google Cloud Platform with performance benchmarking.",
 		tags: ["OpenStack", "Kolla-Ansible", "Cloud Infrastructure", "GCP"],
 		href: "/projects/openstack-cloud-deployment",
-		image: "/images/projects/deploy-cloud-service-kolla-ansible/openstack-dashboard.png",
+		image: "/images/projects/deploy-cloud-service-kolla-ansible/kolla-ansible.png",
 	},
 	{
 		title: "Adversarial Attacks in AIOps",

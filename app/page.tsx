@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Github, Linkedin, Mail, Twitter, Code, Brain, Cloud, Database, Wrench, BarChart3 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -11,7 +12,6 @@ import { MouseFollower } from "@/components/mouse-follower"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
-import { BlogCard } from "@/components/blog-card"
 import { CertificationsGrid } from "@/components/certifications-grid"
 
 export default function Portfolio() {
@@ -129,10 +129,13 @@ export default function Portfolio() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70" />
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
-                <img
-                  src="/placeholder.svg?height=600&width=600"
-                  alt="Amro Hendawi"
+                <Image
+                  src="/Hendawi_Amro.jpeg"
+                  alt="Amro Hendawi - Senior ML/AI Engineer & Team Lead"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 w-full p-6">
@@ -388,15 +391,15 @@ export default function Portfolio() {
             <ProjectCard
               title="Intent-Aware Conversational AI"
               description="Master's Thesis (Grade 1.0): Combined LLMs with internet retrieval and uncertainty modeling to reduce hallucinations."
-              tags={["LLMs", "RAG", "NLP"]}
+              tags={["LLM", "RAG", "Fine-tuning", "NLP", "Conversational Search", "Intent Detection"]}
               image="/images/projects/iaia-cs/intent-aware-conversational-ai.jpg"
               demoUrl="/projects/intent-aware-conversational-ai"
               repoUrl="https://github.com/amrohendawi"
             />
             <ProjectCard
-              title="Enterprise Network Monitoring"
+              title="eBPF Real-time Network Monitoring"
               description="Industry 4.0 solution using eBPF & XDP for sub-millisecond detection latency across multi-cloud environments."
-              tags={["eBPF", "XDP", "Networking"]}
+              tags={["eBPF", "XDP", "Network Monitoring", "Real-time Systems", "Linux"]}
               image="/images/projects/ebpf-realtime-network-monitoring/ebpf_user_kernel.drawio.png"
               demoUrl="/projects/ebpf-network-monitoring"
               repoUrl="https://github.com/amrohendawi"
@@ -404,7 +407,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Bookstore Chatbot with Rasa"
               description="Multilingual chatbot for e-commerce, providing personalized book recommendations and order tracking."
-              tags={["Rasa", "NLP", "Vue.js"]}
+              tags={["Rasa", "NLP", "Vue.js", "Docker", "Chatbot", "German", "English"]}
               image="/images/projects/bookstore-chatbot/e-bookstore.png"
               demoUrl="/projects/bookstore-chatbot-rasa"
               repoUrl="https://github.com/amrohendawi"
@@ -412,7 +415,7 @@ export default function Portfolio() {
             <ProjectCard
               title="BERT4Rec Recommender System"
               description="Implementation of the BERT-based sequential recommendation system for personalized content suggestions."
-              tags={["Transformers", "BERT", "ML"]}
+              tags={["Transformers", "BERT", "Recommender Systems", "NLP", "Machine Learning"]}
               image="/images/projects/bert4rec/autoregressive_models.drawio.png"
               demoUrl="/projects/bert4rec-recommender-system"
               repoUrl="https://github.com/amrohendawi"
@@ -420,15 +423,15 @@ export default function Portfolio() {
             <ProjectCard
               title="OpenStack Cloud Deployment"
               description="Private cloud infrastructure using Kolla-Ansible on Google Cloud Platform with performance benchmarking."
-              tags={["OpenStack", "DevOps", "Cloud"]}
-              image="/images/projects/deploy-cloud-service-kolla-ansible/openstack-dashboard.png"
+              tags={["OpenStack", "Kolla-Ansible", "Cloud Computing", "DevOps", "Infrastructure"]}
+              image="/images/projects/deploy-cloud-service-kolla-ansible/kolla-ansible.png"
               demoUrl="/projects/openstack-cloud-deployment"
               repoUrl="https://github.com/amrohendawi"
             />
             <ProjectCard
               title="Adversarial Attacks in AIOps"
               description="Research on security vulnerabilities in AI-based operations, testing defense mechanisms against adversarial examples."
-              tags={["AIOps", "Security", "ML"]}
+              tags={["AI Security", "AIOps", "Adversarial Attacks", "Machine Learning Security"]}
               image="/images/projects/adversarial-attacks-in-aiops/resnet_arch_for_ts.png"
               demoUrl="/projects/adversarial-attacks-aiops"
               repoUrl="https://github.com/amrohendawi"
@@ -462,69 +465,6 @@ export default function Portfolio() {
 
           <div className="mt-16">
             <Timeline />
-          </div>
-        </div>
-      </section>
-
-      {/* Publications & Blog Section */}
-      <section id="publications" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-        </div>
-
-        <div className="container relative z-10">
-          <SectionHeading title="Publications & Research" subtitle="Technical articles and research work" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <BlogCard
-              title="Intent-Aware Internet-Augmented Conversational AI"
-              description="Master's Thesis research on building conversational AI systems that understand user intent and reduce hallucinations through meta-awareness and internet retrieval."
-              date="2023-01-12"
-              tags={["LLM", "RAG", "Fine-tuning", "NLP", "Conversational Search", "Intent Detection"]}
-              readTime="15 min read"
-              githubUrl="/projects/intent-aware-conversational-ai"
-            />
-            <BlogCard
-              title="BERT4Rec: BERT as a Recommender System"
-              description="Implementation and analysis of BERT-based sequential recommendation system, exploring bidirectional encoder representations for personalized recommendations."
-              date="2022-10-18"
-              tags={["Transformers", "BERT", "Recommender Systems", "NLP", "Machine Learning"]}
-              readTime="12 min read"
-              githubUrl="/projects/bert4rec-recommender-system"
-            />
-            <BlogCard
-              title="Real-time Network Monitoring with eBPF & XDP"
-              description="Building highly scalable real-time network monitoring systems using eBPF and XDP for Industry 4.0 applications with sub-millisecond latency."
-              date="2022-02-18"
-              tags={["eBPF", "XDP", "Network Monitoring", "Real-time Systems", "Linux"]}
-              readTime="10 min read"
-              githubUrl="/projects/ebpf-network-monitoring"
-            />
-            <BlogCard
-              title="Bookstore Chatbot with Rasa & Vue.js"
-              description="Full-stack e-commerce chatbot implementation using Rasa for NLP, Vue.js for frontend, and Docker for deployment with multilingual support."
-              date="2022-02-10"
-              tags={["Rasa", "NLP", "Vue.js", "Docker", "Chatbot", "German", "English"]}
-              readTime="8 min read"
-              githubUrl="/projects/bookstore-chatbot-rasa"
-            />
-            <BlogCard
-              title="Deploy Private Cloud with Kolla-Ansible"
-              description="Step-by-step guide to deploying your own private cloud service provider using OpenStack and Kolla-Ansible on Google Cloud Platform."
-              date="2021-02-12"
-              tags={["OpenStack", "Kolla-Ansible", "Cloud Computing", "DevOps", "Infrastructure"]}
-              readTime="12 min read"
-              githubUrl="/projects/openstack-cloud-deployment"
-            />
-            <BlogCard
-              title="Adversarial Attacks in AIOps"
-              description="Research on security vulnerabilities in AI-driven operations systems and defense mechanisms against adversarial attacks."
-              date="2021-07-30"
-              tags={["AI Security", "AIOps", "Adversarial Attacks", "Machine Learning Security"]}
-              readTime="10 min read"
-              githubUrl="/projects/adversarial-attacks-aiops"
-            />
           </div>
         </div>
       </section>
