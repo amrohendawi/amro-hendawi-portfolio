@@ -5,7 +5,6 @@ import { ArrowRight, Github, Linkedin, Mail, Twitter, Code, Brain, Cloud, Databa
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
 import { Timeline } from "@/components/timeline"
-import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
 import { MouseFollower } from "@/components/mouse-follower"
@@ -47,21 +46,25 @@ export default function Portfolio() {
               I architect enterprise AI systems with 5+ years of experience in GenAI, multi-agent systems, and scalable AI solutions on AWS, Azure, and GCP.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
-                <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
-              >
-                Contact Me
-              </Button>
+              <Link href="/projects">
+                <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
+                  <span className="relative z-10 flex items-center">
+                    View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Button>
+              </Link>
+              <Link href="#contact">
+                <Button
+                  variant="outline"
+                  className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
+                >
+                  Contact Me
+                </Button>
+              </Link>
             </div>
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/amrohendawi" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -486,7 +489,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 relative">
+      <section id="contact" className="py-16 relative min-h-screen flex flex-col justify-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
           <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
@@ -495,49 +498,49 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-            <GlassmorphicCard>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-purple-400" />
+          <div className="flex justify-center mt-8">
+            <div className="max-w-md w-full">
+              <GlassmorphicCard>
+                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
+                      <Mail className="h-4 w-4 text-purple-400" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-zinc-500">Email</div>
+                      <div className="font-medium text-sm">amro.hendawi@gmail.com</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">amro.hendawi@gmail.com</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
+                      <Linkedin className="h-4 w-4 text-purple-400" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-zinc-500">LinkedIn</div>
+                      <div className="font-medium text-sm">linkedin.com/in/amrohendawi</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
+                      <Github className="h-4 w-4 text-purple-400" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-zinc-500">GitHub</div>
+                      <div className="font-medium text-sm">github.com/amrohendawi</div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Linkedin className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/amrohendawi</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Github className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/amrohendawi</div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="mt-8 pt-8 border-t border-zinc-800">
-                <h4 className="text-lg font-medium mb-4">Current Status</h4>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                  <span>Available for AI/ML consulting and leadership opportunities</span>
+                <div className="mt-6 pt-6 border-t border-zinc-800">
+                  <h4 className="text-base font-medium mb-3">Current Status</h4>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-sm">Available for AI/ML consulting and leadership opportunities</span>
+                  </div>
                 </div>
-              </div>
-            </GlassmorphicCard>
-
-            <ContactForm />
+              </GlassmorphicCard>
+            </div>
           </div>
         </div>
       </section>
