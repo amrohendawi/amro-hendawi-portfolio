@@ -40,6 +40,13 @@ export function BlogCard({
     >
       <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
 
+      {/* Clickable overlay for the entire card */}
+      {externalUrl && (
+        <Link href={externalUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10">
+          <span className="sr-only">Read article: {title}</span>
+        </Link>
+      )}
+
       <div className="relative">
         <div className="aspect-video overflow-hidden">
           <img
@@ -47,7 +54,7 @@ export function BlogCard({
             alt={title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </div>
 
         <div className="p-6">
@@ -94,9 +101,9 @@ export function BlogCard({
             )}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 relative z-20">
             {externalUrl && (
-              <Link href={externalUrl} target="_blank" rel="noopener noreferrer">
+              <Link href={externalUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <Button
                   size="sm"
                   className="bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border-purple-500/30"
@@ -108,7 +115,7 @@ export function BlogCard({
               </Link>
             )}
             {githubUrl && (
-              <Link href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Link href={githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <Button
                   size="sm"
                   variant="ghost"

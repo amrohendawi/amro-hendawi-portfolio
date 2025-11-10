@@ -4,6 +4,7 @@ import { ArrowRight, Github, Linkedin, Mail, Twitter, Code, Brain, Cloud, Databa
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
+import { BlogCard } from "@/components/blog-card"
 import { Timeline } from "@/components/timeline"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
@@ -82,6 +83,18 @@ export default function Portfolio() {
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
+                </Button>
+              </Link>
+              <Link href="https://medium.com/@amro.hendawi" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                >
+                  <svg viewBox="0 0 1043.63 592.71" className="h-5 w-5 fill-current">
+                    <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
+                  </svg>
+                  <span className="sr-only">Medium</span>
                 </Button>
               </Link>
               <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
@@ -456,6 +469,81 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Publications Section */}
+      <section id="publications" className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" />
+          <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000" />
+        </div>
+
+        <div className="container relative z-10">
+          <SectionHeading 
+            title="Publications & Thought Leadership" 
+            subtitle="Contributing to the AI community through research and insights"
+          />
+          
+          {/* Featured badge */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 backdrop-blur-sm">
+              <div className="relative w-5 h-5">
+                <svg viewBox="0 0 1043.63 592.71" className="w-full h-full fill-white">
+                  <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
+                </svg>
+              </div>
+              <span className="text-sm font-medium text-white">Published on Medium</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+            <BlogCard
+              title="From Autoregressive Models to Artificial General Intelligence (AGI)"
+              description="Exploring the path from LLMs to AGI through chain-of-thought reasoning, tree-of-thought exploration, and advanced techniques like MCTS and RLHF. A deep dive into building an artificial brain by simulating human cognitive processes with modular AI architectures."
+              date="2024-12-27"
+              tags={["AGI", "LLM", "Artificial Intelligence", "Chain-of-Thought", "MCTS", "RLHF", "Knowledge Graphs", "Neural Architecture"]}
+              readTime="8 min read"
+              image="https://miro.medium.com/v2/resize:fit:2000/format:webp/1*fdagJow_V00Y7HH6L3BxAQ.png"
+              externalUrl="https://medium.com/ai-powered-software-development/from-autoregressive-models-to-artificial-general-intelligence-agi-987c14ea67bc"
+            />
+            <BlogCard
+              title="Europe's Digital Sovereignty Imperative"
+              description="A comprehensive analysis of Europe's path to digital independence. Covering EU-compliant cloud infrastructure, open-source alternatives, sovereign AI models, and the regulatory landscape shaping the future of European tech. From Mistral AI to Nextcloud, discover the ecosystem enabling true digital sovereignty."
+              date="2025-05-23"
+              tags={["Digital Sovereignty", "European Tech", "Open Source", "GDPR", "AI Act", "Cloud Infrastructure", "Mistral AI", "Self-Hosting"]}
+              readTime="11 min read"
+              image="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*LmMH2zH4nrWKhnITQx29NQ.png"
+              externalUrl="https://medium.com/ai-powered-software-development/europes-digital-sovereignty-imperative-58444e837f98"
+            />
+          </div>
+
+          {/* Call to action for more articles */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-zinc-700/50">
+              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+                More Articles Coming Soon
+              </h3>
+              <p className="text-zinc-400 max-w-md">
+                I regularly write about AI/ML, system architecture, and emerging technologies. Follow me on Medium to stay updated.
+              </p>
+              <Link 
+                href="https://medium.com/@amro.hendawi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button 
+                  className="gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-500 hover:to-indigo-500 border-0"
+                >
+                  <svg viewBox="0 0 1043.63 592.71" className="w-4 h-4 fill-white">
+                    <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
+                  </svg>
+                  Follow on Medium
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Experience Section */}
       <section id="experience" className="py-32 relative">
         <div className="absolute inset-0 z-0">
@@ -576,6 +664,18 @@ export default function Portfolio() {
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
+              </Button>
+            </Link>
+            <Link href="https://medium.com/@amro.hendawi" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+              >
+                <svg viewBox="0 0 1043.63 592.71" className="h-5 w-5 fill-current">
+                  <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
+                </svg>
+                <span className="sr-only">Medium</span>
               </Button>
             </Link>
             <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
