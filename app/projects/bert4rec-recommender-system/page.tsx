@@ -14,7 +14,7 @@ export default function BERT4RecProject() {
       <div className="relative mb-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-violet-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
         </div>
 
         <div className="relative z-10">
@@ -297,8 +297,8 @@ export default function BERT4RecProject() {
                   <div className="text-sm font-medium">NDCG@10</div>
                   <div className="text-xs text-zinc-400 mt-1">Normalized discounted cumulative gain</div>
                 </div>
-                <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20 text-center">
-                  <div className="text-2xl font-bold text-purple-400 mb-2">0.156</div>
+                <div className="bg-indigo-500/10 rounded-lg p-6 border border-indigo-500/15 text-center">
+                  <div className="text-2xl font-bold text-indigo-300 mb-2">0.156</div>
                   <div className="text-sm font-medium">Final Loss</div>
                   <div className="text-xs text-zinc-400 mt-1">Training convergence</div>
                 </div>

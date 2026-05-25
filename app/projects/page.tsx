@@ -73,8 +73,8 @@ export default function ProjectsPage() {
 					transition={{ duration: 0.5, delay: 0.2 }}
 					className="inline-block mb-4"
 				>
-					<div className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
-						<span className="text-sm font-medium bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+					<div className="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/15">
+						<span className="text-sm font-medium bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400 bg-clip-text text-transparent">
 							Portfolio Showcase
 						</span>
 					</div>
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
 					className="text-4xl md:text-6xl font-bold tracking-tight mb-6"
 				>
 					All{" "}
-					<span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+					<span className="bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400 bg-clip-text text-transparent">
 						Projects
 					</span>
 				</motion.h1>
@@ -105,9 +105,9 @@ export default function ProjectsPage() {
 
 			{/* Background decoration */}
 			<div className="absolute inset-0 z-0 overflow-hidden">
-				<div className="absolute top-1/4 left-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
-				<div className="absolute top-1/3 right-10 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
-				<div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" />
+				<div className="absolute top-1/4 left-10 w-64 h-64 bg-indigo-600 rounded-full mix-blend-screen filter blur-[120px] opacity-15 animate-blob" />
+				<div className="absolute top-1/3 right-10 w-64 h-64 bg-indigo-600 rounded-full mix-blend-screen filter blur-[120px] opacity-15 animate-blob animation-delay-2000" />
+				<div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[130px] opacity-15 animate-blob animation-delay-4000" />
 			</div>
 
 			{/* Projects Grid */}
@@ -150,14 +150,14 @@ export default function ProjectsPage() {
 						I'm always open to discussing new opportunities and innovative
 						AI/ML projects.
 					</p>
-					<Link href="/#contact">
-						<motion.button
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 font-medium transition-all duration-300 shadow-lg hover:shadow-purple-500/25"
-						>
-							Get in Touch
-						</motion.button>
+					<Link
+						href="/#contact"
+						className="group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-zinc-100/[0.04] hover:bg-zinc-100/[0.07] border border-white/10 hover:border-white/20 text-sm font-medium text-zinc-100 backdrop-blur-sm transition-all"
+					>
+						<span className="tracking-wide">Get in touch</span>
+						<span className="flex items-center justify-center w-7 h-7 rounded-full bg-lime-400/90 text-zinc-950 group-hover:bg-lime-400 group-hover:translate-x-0.5 transition-all">
+							<ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+						</span>
 					</Link>
 				</div>
 			</motion.div>
@@ -181,7 +181,7 @@ function ProjectLink({
 	return (
 		<Link href={href}>
 			<GlassmorphicCard>
-				<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-zinc-800/60 group-hover:border-purple-500/30">
+				<div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-zinc-800/60 group-hover:border-indigo-500/30">
 					{/* Project Image */}
 					<div className="lg:w-64 lg:h-48 flex-shrink-0">
 						<div className="relative w-full h-48 lg:h-full rounded-lg overflow-hidden bg-zinc-800/50 border border-zinc-700/50">
@@ -196,12 +196,12 @@ function ProjectLink({
 
 					<div className="flex-grow">
 						<div className="flex items-start justify-between mb-4">
-							<h3 className="text-2xl font-bold group-hover:text-purple-400 transition-colors">
+							<h3 className="text-2xl font-bold group-hover:text-indigo-300 transition-colors">
 								{title}
 							</h3>
 							<motion.div whileHover={{ x: 5 }} className="flex-shrink-0 ml-4">
-								<div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
-									<ArrowRight className="h-5 w-5 text-purple-400 group-hover:text-purple-300" />
+								<div className="w-10 h-10 rounded-full bg-indigo-500/15 flex items-center justify-center group-hover:to-violet-500/30 transition-all duration-300">
+									<ArrowRight className="h-5 w-5 text-indigo-300 group-hover:text-indigo-300" />
 								</div>
 							</motion.div>
 						</div>
@@ -217,7 +217,7 @@ function ProjectLink({
 									initial={{ opacity: 0, scale: 0.8 }}
 									animate={{ opacity: 1, scale: 1 }}
 									transition={{ duration: 0.3, delay: index * 0.05 }}
-									className="px-3 py-1 rounded-full text-sm font-medium bg-zinc-800/60 text-zinc-300 border border-zinc-700/50 group-hover:border-purple-500/30 group-hover:bg-purple-500/10 transition-all duration-300"
+									className="px-3 py-1 rounded-full text-sm font-medium bg-zinc-800/60 text-zinc-300 border border-zinc-700/50 group-hover:border-indigo-500/30 group-hover:bg-indigo-500/10 transition-all duration-300"
 								>
 									{tag}
 								</motion.span>

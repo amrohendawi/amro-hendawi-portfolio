@@ -183,8 +183,8 @@ export default function EbpfNetworkMonitoringPage() {
                   <GlassmorphicCard>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <Network className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-indigo-500/20">
+                          <Network className="h-5 w-5 text-indigo-300" />
                         </div>
                         <h3 className="text-lg font-semibold">DataVisualizer Module</h3>
                       </div>
@@ -313,8 +313,8 @@ export default function EbpfNetworkMonitoringPage() {
                           <h4 className="font-semibold text-yellow-400 mb-2">3. System Layer</h4>
                           <p className="text-sm text-gray-300">Firewall-based filtering - higher flexibility with moderate efficiency</p>
                         </div>
-                        <div className="p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
-                          <h4 className="font-semibold text-purple-400 mb-2">4. Application Layer</h4>
+                        <div className="p-4 rounded-lg bg-indigo-500/10 border border-indigo-500/15">
+                          <h4 className="font-semibold text-indigo-300 mb-2">4. Application Layer</h4>
                           <p className="text-sm text-gray-300">Application-level filtering - maximum flexibility but lowest efficiency</p>
                         </div>
                       </div>
@@ -348,7 +348,7 @@ export default function EbpfNetworkMonitoringPage() {
 
                   <GlassmorphicCard>
                     <div className="text-center space-y-3">
-                      <div className="text-3xl font-bold text-purple-400">0.179ms</div>
+                      <div className="text-3xl font-bold text-indigo-300">0.179ms</div>
                       <div className="text-sm font-medium">Average Latency</div>
                       <div className="text-xs text-gray-400">eBPF vs. 0.766ms ping</div>
                     </div>
@@ -647,7 +647,7 @@ metric_connections_total 397`}
                     <h3 className="text-lg font-semibold text-white">Key Technical Achievements</h3>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-4">
-                        <div className="p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
+                        <div className="p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/15">
                           <h4 className="font-semibold text-cyan-400 mb-2">Kernel-Level Monitoring</h4>
                           <p className="text-sm text-gray-300">eBPF programs inject tracing points directly in the Linux kernel, capturing network events with minimal overhead and maximum accuracy.</p>
                         </div>
@@ -657,8 +657,8 @@ metric_connections_total 397`}
                         </div>
                       </div>
                       <div className="space-y-4">
-                        <div className="p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
-                          <h4 className="font-semibold text-purple-400 mb-2">XDP Packet Dropping</h4>
+                        <div className="p-4 rounded-lg bg-indigo-500/10 border border-indigo-500/15">
+                          <h4 className="font-semibold text-indigo-300 mb-2">XDP Packet Dropping</h4>
                           <p className="text-sm text-gray-300">High-performance packet filtering reduces bandwidth consumption and CPU context switches by processing packets at the lowest network stack level.</p>
                         </div>
                         <div className="p-4 rounded-lg bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20">

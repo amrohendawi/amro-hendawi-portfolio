@@ -39,7 +39,7 @@ export default function ProjectLayout({
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Amro</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400">Amro</span>
               <span className="text-white">Hendawi</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">

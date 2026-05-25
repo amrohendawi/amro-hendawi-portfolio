@@ -53,6 +53,20 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          soft: "hsl(var(--brand-soft))",
+          foreground: "hsl(var(--brand-fg))",
+        },
+        "brand-2": {
+          DEFAULT: "hsl(var(--brand-2))",
+          foreground: "hsl(var(--brand-2-fg))",
+        },
+        canvas: "hsl(var(--canvas))",
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          hi: "hsl(var(--surface-hi))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

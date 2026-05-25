@@ -28,8 +28,8 @@ export default function BookstoreChatbotPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Bot className="h-8 w-8 text-purple-400" />
-              <Badge variant="outline" className="border-purple-400/50 text-purple-400">
+              <Bot className="h-8 w-8 text-indigo-300" />
+              <Badge variant="outline" className="border-purple-400/50 text-indigo-300">
                 Conversational AI
               </Badge>
             </div>
@@ -136,8 +136,8 @@ export default function BookstoreChatbotPage() {
                   <GlassmorphicCard>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <Bot className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-indigo-500/20">
+                          <Bot className="h-5 w-5 text-indigo-300" />
                         </div>
                         <h3 className="text-lg font-semibold">Chatbot Components</h3>
                       </div>
@@ -235,7 +235,7 @@ export default function BookstoreChatbotPage() {
                   <GlassmorphicCard>
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-xl font-semibold mb-3 text-purple-400">Custom Entity Recognition</h3>
+                        <h3 className="text-xl font-semibold mb-3 text-indigo-300">Custom Entity Recognition</h3>
                         <p className="text-gray-300 leading-relaxed">
                           To handle book-specific entities like GENRE, WORK_OF_ART, and PRICE, we created and annotated 
                           a custom training dataset. The dataset includes e-bookstore specific queries and book reviews 
@@ -332,7 +332,7 @@ export default function BookstoreChatbotPage() {
                   <div>
                     <div className="text-sm font-medium text-gray-400 mb-1">Repository</div>
                     <a href="https://github.com/amrohendawi/Bookstore-chatbot" 
-                       className="text-sm text-purple-400 hover:underline" 
+                       className="text-sm text-indigo-300 hover:underline" 
                        target="_blank" 
                        rel="noopener noreferrer">
                       View Source Code

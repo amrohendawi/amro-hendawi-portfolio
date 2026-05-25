@@ -187,8 +187,8 @@ gcloud compute project-info add-metadata --metadata-from-file ssh-keys=metadata.
                   <GlassmorphicCard>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <Network className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-indigo-500/20">
+                          <Network className="h-5 w-5 text-indigo-300" />
                         </div>
                         <h3 className="text-lg font-semibold">Automated Infrastructure Script</h3>
                       </div>
@@ -307,8 +307,8 @@ ip link show`}</code></pre>
                   <GlassmorphicCard>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <Terminal className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-indigo-500/20">
+                          <Terminal className="h-5 w-5 text-indigo-300" />
                         </div>
                         <h3 className="text-lg font-semibold">Kolla-Ansible Configuration</h3>
                       </div>
@@ -323,7 +323,7 @@ ip link show`}</code></pre>
                         <li>• <strong>Password Generation:</strong> Auto-generate service passwords for security</li>
                       </ul>
                       <div className="bg-gray-900/80 rounded-lg p-4 border border-gray-800 mt-4">
-                        <pre className="text-sm text-purple-400"><code>{`# Example globals.yml configuration
+                        <pre className="text-sm text-indigo-300"><code>{`# Example globals.yml configuration
 kolla_base_distro: "ubuntu"
 kolla_internal_vip_address: "172.28.0.100"
 network_interface: "ens4"
@@ -544,8 +544,8 @@ wget 169.254.169.254/openstack/...   # Metadata service`}</code></pre>
                   <GlassmorphicCard>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-purple-500/20">
-                          <Terminal className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-indigo-500/20">
+                          <Terminal className="h-5 w-5 text-indigo-300" />
                         </div>
                         <h3 className="text-lg font-semibold">Critical Lessons Learned</h3>
                       </div>
@@ -654,7 +654,7 @@ wget 169.254.169.254/openstack/...   # Metadata service`}</code></pre>
                       
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <h3 className="text-lg font-semibold mb-3 text-purple-400">Disk I/O Performance</h3>
+                          <h3 className="text-lg font-semibold mb-3 text-indigo-300">Disk I/O Performance</h3>
                           <p className="text-sm text-gray-300">
                             Disk performance showed mixed results. Sequential read/write operations achieved 
                             88% of public cloud performance, while random access patterns exhibited higher 
@@ -850,13 +850,13 @@ wget 169.254.169.254/openstack/...   # Metadata service`}</code></pre>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-400">Disk I/O (Sequential)</span>
                     <div className="w-32 h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-500 rounded-full" style={{ width: "88%" }} />
+                      <div className="h-full bg-violet-500 rounded-full" style={{ width: "88%" }} />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-400">Disk I/O (Random)</span>
                     <div className="w-32 h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-yellow-500 rounded-full" style={{ width: "78%" }} />
+                      <div className="h-full bg-lime-400 rounded-full" style={{ width: "78%" }} />
                     </div>
                   </div>
                 </CardContent>

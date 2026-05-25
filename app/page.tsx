@@ -1,6 +1,112 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Github, Linkedin, Mail, Twitter, Code, Brain, Cloud, Database, Wrench, BarChart3 } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Twitter, Bot, Sparkles, Search, Cpu, Activity, Cloud, Database, Layers } from "lucide-react"
+
+// Skill clusters — Senior AI Architect stack, May 2026
+const skillGroups = [
+  {
+    icon: Bot,
+    title: "AI & Agents",
+    hue: "indigo",
+    skills: [
+      "Multi-Agent Systems", "Agent Harnesses", "Context Engineering",
+      "Claude Agent SDK", "OpenAI Agents SDK", "LangGraph", "DeepAgents",
+      "AutoGen", "LangChain", "DSPy", "MCP Servers", "LiteLLM",
+      "Pydantic AI", "n8n",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "LLMs & Foundation Models",
+    hue: "fuchsia",
+    skills: [
+      "Multi-Modal LLMs", "self-hosting",
+      "Reasoning Models", "Prompt Engineering", "Synthetic Data",
+      "RLHF / DPO", "Distillation", "Speculative Decoding",
+    ],
+  },
+  {
+    icon: Search,
+    title: "RAG & Semantic Search",
+    hue: "emerald",
+    skills: [
+      "RAG", "HyDE", "Hybrid Search", "BM25", "HNSW", "RRF Fusion",
+      "Re-ranking", "Cross-Encoders", "Embeddings", "Chunking Strategies",
+      "Semantic Search", "Knowledge Graphs"
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "Machine Learning",
+    hue: "sky",
+    skills: [
+      "PyTorch", "TensorFlow", "Transformers", "BERT", "LSTM",
+      "CNN", "RNN", "GNN", "Diffusion Models", "GANs", "VAEs",
+      "Hugging Face", "spaCy", "NLTK", "scikit-learn", "NumPy", "pandas",
+      "NLP / NLU",
+    ],
+  },
+  {
+    icon: Activity,
+    title: "MLOps & LLMOps",
+    hue: "teal",
+    skills: [
+      "MLFlow", "Kubeflow", "KServe", "vLLM", "SGLang",
+      "Weights & Biases", "Langfuse", "LangSmith", "Ragas",
+      "OpenLLMetry", "PEFT / LoRA / QLoRA", "Unsloth", "LlamaFactory",
+      "CUDA"
+    ],
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    hue: "cyan",
+    skills: [
+      "AWS", "Google Cloud", "Bedrock", "CloudFormation", "Terraform", "Azure AI Studio",
+      "GCP Vertex AI", "OpenStack", "Kubernetes", "Docker", "Helm",
+      "ArgoCD", "Kargo",
+      "GitHub Actions", "Prometheus", "Grafana", "Splunk",
+      "Datadog", "OpenTelemetry",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Data & Storage",
+    hue: "amber",
+    skills: [
+      "Qdrant", "Pinecone", "pgvector", "ChromaDB", "FAISS",
+      "PostgreSQL", "MongoDB", "Redis", "Supabase", "Neon DB", "ClickHouse", "Drizzle", "Prisma",
+      "Dagster", "AWS Glue Jobs", "Apache Kafka", "Apache Flink", "dbt",
+    ],
+  },
+  {
+    icon: Layers,
+    title: "Full-Stack & Web",
+    hue: "rose",
+    skills: [
+      "Next.js", "Angular",
+      "Tailwind CSS", "SCSS", "shadcn/ui", "Framer Motion", "Figma",
+      "Node.js", "Spring Boot", "FastAPI",
+      "REST", "OpenAPI", "gRPC",
+      "WebSockets", "SSE", "Edge Functions",
+      "Clerk", "Keycloak", "FusionAuth",
+      "OAuth 2.0", "SAML", "JWT",
+      "RBAC", "IAM",
+    ],
+  },
+] as const
+
+// Hue → static Tailwind classes (Tailwind needs full literal strings to JIT)
+const hueStyles: Record<string, { wrap: string; glyph: string; chip: string }> = {
+  indigo:  { wrap: "bg-indigo-500/15 ring-1 ring-indigo-500/30",   glyph: "text-indigo-300",   chip: "bg-indigo-500/[0.05] text-indigo-300 border-indigo-500/15 hover:bg-indigo-500/15 hover:border-indigo-400/50 hover:text-indigo-100" },
+  fuchsia: { wrap: "bg-fuchsia-500/15 ring-1 ring-fuchsia-500/30", glyph: "text-fuchsia-300",  chip: "bg-fuchsia-500/[0.04] text-fuchsia-300 border-fuchsia-500/15 hover:bg-fuchsia-500/15 hover:border-fuchsia-400/50 hover:text-fuchsia-100" },
+  emerald: { wrap: "bg-emerald-500/15 ring-1 ring-emerald-500/30", glyph: "text-emerald-300", chip: "bg-emerald-500/[0.04] text-emerald-300 border-emerald-500/15 hover:bg-emerald-500/15 hover:border-emerald-400/50 hover:text-emerald-100" },
+  sky:     { wrap: "bg-sky-500/15 ring-1 ring-sky-500/30",         glyph: "text-sky-300",     chip: "bg-sky-500/[0.04] text-sky-300 border-sky-500/15 hover:bg-sky-500/15 hover:border-sky-400/50 hover:text-sky-100" },
+  teal:    { wrap: "bg-teal-500/15 ring-1 ring-teal-500/30",       glyph: "text-teal-300",    chip: "bg-teal-500/[0.04] text-teal-300 border-teal-500/15 hover:bg-teal-500/15 hover:border-teal-400/50 hover:text-teal-100" },
+  cyan:    { wrap: "bg-cyan-500/15 ring-1 ring-cyan-500/30",       glyph: "text-cyan-300",    chip: "bg-cyan-500/[0.04] text-cyan-300 border-cyan-500/15 hover:bg-cyan-500/15 hover:border-cyan-400/50 hover:text-cyan-100" },
+  amber:   { wrap: "bg-amber-500/15 ring-1 ring-amber-500/30",     glyph: "text-amber-300",   chip: "bg-amber-500/[0.04] text-amber-300 border-amber-500/15 hover:bg-amber-500/15 hover:border-amber-400/50 hover:text-amber-100" },
+  rose:    { wrap: "bg-rose-500/15 ring-1 ring-rose-500/30",       glyph: "text-rose-300",    chip: "bg-rose-500/[0.04] text-rose-300 border-rose-500/15 hover:bg-rose-500/15 hover:border-rose-400/50 hover:text-rose-100" },
+}
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
@@ -16,7 +122,7 @@ import { CertificationsGrid } from "@/components/certifications-grid"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white">
+    <div className="bg-grain min-h-screen text-white relative" style={{ background: "radial-gradient(ellipse at top, hsl(228 25% 8%), hsl(228 22% 5%) 50%, hsl(230 20% 3%))" }}>
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
@@ -24,44 +130,39 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+          <div className="absolute top-20 left-10 w-[28rem] h-[28rem] bg-indigo-800 rounded-full mix-blend-screen filter blur-[140px] opacity-15 animate-blob" />
+          <div className="absolute top-1/3 right-10 w-64 h-64 bg-lime-500 rounded-full mix-blend-screen filter blur-[120px] opacity-[0.12] animate-blob animation-delay-2000" />
+          <div className="absolute bottom-20 left-1/3 w-96 h-96 bg-slate-600 rounded-full mix-blend-screen filter blur-[140px] opacity-15 animate-blob animation-delay-4000" />
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-block">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
-                <span className="relative z-10">Senior ML/AI Engineer & Team Lead</span>
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse" />
+              <div className="relative inline-flex items-center gap-2 px-3 py-1 text-sm font-medium rounded-full bg-indigo-500/[0.08] backdrop-blur-sm border border-indigo-400/25 ring-1 ring-indigo-400/10 mb-4">
+                <span className="relative w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_8px_rgba(163,230,53,0.8)]">
+                  <span className="absolute inset-0 rounded-full bg-lime-400 animate-ping opacity-75" />
+                </span>
+                <span className="relative z-10 text-indigo-100 tracking-wide">Senior AI Architect</span>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              <span className="block">Hi, I'm</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-                Amro Hendawi
+              <span className="block text-zinc-400 font-light text-3xl md:text-4xl mb-2">Hi, I'm</span>
+              <span className="block text-zinc-50">
+                Amro <span className="relative">Hendawi<span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-lime-400/80 rounded-full" /></span>
               </span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">
-              I architect enterprise AI systems with 5+ years of experience in GenAI, multi-agent systems, and scalable AI solutions on AWS, Azure, and GCP.
+              I architect distributed AI systems with 6+ years engineering multi-agent platforms, hybrid semantic search, and MLOps across healthcare, automotive, and logistics.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/projects">
-                <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
-                  <span className="relative z-10 flex items-center">
-                    View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Button>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <Link href="/projects" className="group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-zinc-100/[0.04] hover:bg-zinc-100/[0.07] border border-white/10 hover:border-white/20 text-sm font-medium text-zinc-100 backdrop-blur-sm transition-all">
+                <span className="tracking-wide">View Projects</span>
+                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-lime-400/90 text-zinc-950 group-hover:bg-lime-400 group-hover:translate-x-0.5 transition-all">
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
               </Link>
-              <Link href="#contact">
-                <Button
-                  variant="outline"
-                  className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
-                >
-                  Contact Me
-                </Button>
+              <Link href="#contact" className="inline-flex items-center px-5 py-2 rounded-full text-sm font-medium text-zinc-400 hover:text-zinc-100 border border-white/10 hover:border-white/20 transition-all">
+                Contact me
               </Link>
             </div>
             <div className="flex gap-4 pt-4">
@@ -134,8 +235,8 @@ export default function Portfolio() {
       {/* About Section */}
       <section id="about" className="py-32 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-indigo-800 rounded-full mix-blend-screen filter blur-[130px] opacity-10" />
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[120px] opacity-10" />
         </div>
 
         <div className="container relative z-10">
@@ -143,7 +244,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70" />
+              <div className="absolute -inset-4 rounded-xl bg-indigo-500/15 blur-xl opacity-70" />
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <Image
                   src="/Hendawi_Amro.jpeg"
@@ -166,13 +267,13 @@ export default function Portfolio() {
             <div className="space-y-6">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I'm a Senior ML/AI Engineer with over 5 years of experience architecting enterprise AI systems across the automotive, industrial tech, and logistics sectors. I specialize in Generative AI (GenAI), multi-agent systems, LLMOps, and scalable AI architectures on AWS, Azure, and GCP.
+                  I'm a Senior AI Architect with 6+ years engineering distributed AI systems across healthcare, automotive, and logistics. I specialize in multi-agent systems, hybrid semantic search (BM25 + HNSW + RRF + HyDE), LLMOps, and scalable AI architectures on AWS, Azure, and GCP.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  I've led cross-functional engineering teams, delivered patented AI products, and generated over €300K in annual cost savings through AI-driven automation and system modernization. My work combines hands-on engineering, deep AI knowledge, and a passion for building AI solutions that make a measurable impact.
+                  Currently I'm building AI-powered medical assistants for rare chronic diseases at mama health — a patient-side AI companion guiding treatment journeys and a pharma-side analytics assistant supporting partners including Bayer. Previously delivered enterprise AI to Porsche, BMW, DHL, Vodafone, Red Bull, and Siemens — generating <span className="text-lime-300 font-medium">€300K+ in annual savings</span> through legacy modernization and multi-agent orchestration platforms.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  Currently based in Berlin, I hold an M.Sc. in Computer Engineering from TU Berlin with a GPA of 1.0, and I'm multilingual, speaking Arabic, English, German, Turkish, and French.
+                  Based in Berlin, I hold an M.Sc. in Computer Engineering from TU Berlin (Grade 1.4, Thesis 1.0). I'm multilingual: Arabic (native), English, German, Turkish, and French.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
@@ -182,7 +283,12 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">amro.hendawi@gmail.com</div>
+                    <a
+                      href="mailto:amro.hendawi@gmail.com"
+                      className="font-medium hover:text-indigo-300 transition-colors break-all"
+                    >
+                      amro.hendawi@gmail.com
+                    </a>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Location</div>
@@ -190,12 +296,17 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Phone</div>
-                    <div className="font-medium">+49 176 47121256</div>
+                    <a
+                      href="tel:+4917647121256"
+                      className="font-medium hover:text-indigo-300 transition-colors"
+                    >
+                      +49 176 47121256
+                    </a>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Education</div>
                     <div className="font-medium">M.Sc. Computer Engineering</div>
-                    <div className="text-xs text-zinc-400">TU Berlin (GPA: 1.0)</div>
+                    <div className="text-xs text-zinc-400">TU Berlin · Grade 1.4 (Thesis 1.0)</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Languages</div>
@@ -216,184 +327,36 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id="skills" className="py-32 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[130px] opacity-10" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-600 rounded-full mix-blend-screen filter blur-[120px] opacity-8" />
         </div>
 
         <div className="container relative z-10">
           <SectionHeading title="My Skills" subtitle="Technologies and expertise I work with" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            {/* Programming Languages */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-500/20">
-                    <Code className="h-5 w-5 text-blue-400" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+            {skillGroups.map(({ icon: Icon, title, hue, skills }) => {
+              const s = hueStyles[hue]
+              return (
+                <GlassmorphicCard key={title}>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-lg ${s.wrap}`}>
+                        <Icon className={`h-5 w-5 ${s.glyph}`} />
+                      </div>
+                      <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {skills.map((skill) => (
+                        <span key={skill} className={`px-2.5 py-1 text-xs font-medium rounded-md border ${s.chip} transition-colors`}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold">Programming Languages</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Python</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Java</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">JavaScript</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">C/C++</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">C#</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Haskell</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* GenAI & LLMs */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Brain className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">GenAI & LLMs</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Ollama</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Unsloth</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">vLLM</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Llama.cpp</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Q-LoRA</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LangGraph</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LangChain</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">LlamaIndex</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">CrewAI</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">AutoGen</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Flowise</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Haystack</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Claude</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">MCP servers</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* Industry AI Knowledge */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-emerald-500/20">
-                    <Brain className="h-5 w-5 text-emerald-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Industry AI Knowledge</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">GenAI Applications</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">LLM Fine-tuning</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">RAG</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Prompt Engineering</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Conversational AI</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">NLP/NLU</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Synthetic Data</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Semantic Search</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">MLOps</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">LLMOps</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* Cloud Computing & DevOps */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-cyan-500/20">
-                    <Cloud className="h-5 w-5 text-cyan-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Cloud & DevOps</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AWS</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Azure</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">GCP</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">OpenStack</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Kubernetes</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Helm</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Git</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">CI/CD</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Prometheus</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Grafana</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Splunk</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* Databases & Vector Stores */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-orange-500/20">
-                    <Database className="h-5 w-5 text-orange-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Databases & Vector Stores</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Qdrant</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">ChromaDB</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">FAISS</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Pinecone</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">MongoDB</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">PostgreSQL</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Supabase</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Prisma</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Drizzle</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">Liquibase</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* Backend & MLOps */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-green-500/20">
-                    <Wrench className="h-5 w-5 text-green-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Backend & MLOps</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">FastAPI</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Flask</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Spring Boot</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Nginx</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">REST API</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">OpenAPI</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">AWS Bedrock</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Vertex AI</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Azure AI Studio</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Kubeflow</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-green-500/10 text-green-300 border border-green-500/20">Langfuse</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-
-            {/* Data Science & ML */}
-            <GlassmorphicCard>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-pink-500/20">
-                    <BarChart3 className="h-5 w-5 text-pink-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold">Data Science & ML</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">PyTorch</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">TensorFlow</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">spaCy</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">NLTK</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">pandas</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">scikit-learn</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">numpy</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">matplotlib</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">W&B</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">MLflow</span>
-                  <span className="px-3 py-1 text-sm rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">Jupyter</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
+                </GlassmorphicCard>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -456,14 +419,11 @@ export default function Portfolio() {
           
           {/* View All Projects Button */}
           <div className="flex justify-center mt-12">
-            <Link href="/projects">
-              <Button 
-                size="lg"
-                className="gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
-              >
-                View All Projects
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            <Link href="/projects" className="group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-zinc-100/[0.04] hover:bg-zinc-100/[0.07] border border-white/10 hover:border-white/20 text-sm font-medium text-zinc-100 backdrop-blur-sm transition-all">
+              <span className="tracking-wide">View all projects</span>
+              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-lime-400/90 text-zinc-950 group-hover:bg-lime-400 group-hover:translate-x-0.5 transition-all">
+                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+              </span>
             </Link>
           </div>
         </div>
@@ -472,8 +432,8 @@ export default function Portfolio() {
       {/* Publications Section */}
       <section id="publications" className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" />
-          <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse animation-delay-2000" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-slate-600 rounded-full mix-blend-screen filter blur-[140px] opacity-15 animate-pulse" />
+          <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-indigo-800 rounded-full mix-blend-screen filter blur-[140px] opacity-15 animate-pulse animation-delay-2000" />
         </div>
 
         <div className="container relative z-10">
@@ -484,7 +444,7 @@ export default function Portfolio() {
           
           {/* Featured badge */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/15 border border-indigo-500/30 backdrop-blur-sm">
               <div className="relative w-5 h-5">
                 <svg viewBox="0 0 1043.63 592.71" className="w-full h-full fill-white">
                   <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
@@ -518,26 +478,25 @@ export default function Portfolio() {
           {/* Call to action for more articles */}
           <div className="mt-16 text-center">
             <div className="inline-flex flex-col items-center gap-4 p-8 rounded-2xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-zinc-700/50">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400">
                 More Articles Coming Soon
               </h3>
               <p className="text-zinc-400 max-w-md">
                 I regularly write about AI/ML, system architecture, and emerging technologies. Follow me on Medium to stay updated.
               </p>
-              <Link 
-                href="https://medium.com/@amro.hendawi" 
-                target="_blank" 
+              <Link
+                href="https://medium.com/@amro.hendawi"
+                target="_blank"
                 rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full bg-zinc-100/[0.04] hover:bg-zinc-100/[0.07] border border-white/10 hover:border-white/20 text-sm font-medium text-zinc-100 backdrop-blur-sm transition-all"
               >
-                <Button 
-                  className="gap-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-500 hover:to-indigo-500 border-0"
-                >
-                  <svg viewBox="0 0 1043.63 592.71" className="w-4 h-4 fill-white">
-                    <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
-                  </svg>
-                  Follow on Medium
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
+                <svg viewBox="0 0 1043.63 592.71" className="w-4 h-4 fill-current text-zinc-300">
+                  <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"/>
+                </svg>
+                <span className="tracking-wide">Follow on Medium</span>
+                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-lime-400/90 text-zinc-950 group-hover:bg-lime-400 group-hover:translate-x-0.5 transition-all">
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
               </Link>
             </div>
           </div>
@@ -547,8 +506,8 @@ export default function Portfolio() {
       {/* Experience Section */}
       <section id="experience" className="py-32 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-indigo-600 rounded-full mix-blend-screen filter blur-[120px] opacity-8" />
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[130px] opacity-10" />
         </div>
 
         <div className="container relative z-10">
@@ -563,8 +522,8 @@ export default function Portfolio() {
       {/* Certifications Section */}
       <section id="certifications" className="py-32 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-lime-500 rounded-full mix-blend-screen filter blur-[120px] opacity-[0.08]" />
+          <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[130px] opacity-10" />
         </div>
 
         <div className="container relative z-10">
@@ -579,8 +538,8 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-16 relative min-h-screen flex flex-col justify-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-indigo-800 rounded-full mix-blend-screen filter blur-[130px] opacity-10" />
+          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-slate-600 rounded-full mix-blend-screen filter blur-[120px] opacity-10" />
         </div>
 
         <div className="container relative z-10">
@@ -591,33 +550,46 @@ export default function Portfolio() {
               <GlassmorphicCard>
                 <h3 className="text-xl font-bold mb-4">Contact Information</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
-                      <Mail className="h-4 w-4 text-purple-400" />
+                  <Link
+                    href="mailto:amro.hendawi@gmail.com"
+                    className="flex items-center gap-3 group rounded-lg -m-2 p-2 hover:bg-zinc-800/60 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                      <Mail className="h-4 w-4 text-indigo-300" />
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">Email</div>
-                      <div className="font-medium text-sm">amro.hendawi@gmail.com</div>
+                      <div className="font-medium text-sm group-hover:text-indigo-300 transition-colors">amro.hendawi@gmail.com</div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
-                      <Linkedin className="h-4 w-4 text-purple-400" />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/amro-hendawi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 group rounded-lg -m-2 p-2 hover:bg-zinc-800/60 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                      <Linkedin className="h-4 w-4 text-indigo-300" />
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">LinkedIn</div>
-                      <div className="font-medium text-sm">linkedin.com/in/amrohendawi</div>
+                      <div className="font-medium text-sm group-hover:text-indigo-300 transition-colors">linkedin.com/in/amro-hendawi</div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
-                      <Github className="h-4 w-4 text-purple-400" />
+                  </Link>
+                  <Link
+                    href="https://github.com/amrohendawi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 group rounded-lg -m-2 p-2 hover:bg-zinc-800/60 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
+                      <Github className="h-4 w-4 text-indigo-300" />
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">GitHub</div>
-                      <div className="font-medium text-sm">github.com/amrohendawi</div>
+                      <div className="font-medium text-sm group-hover:text-indigo-300 transition-colors">github.com/amrohendawi</div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-zinc-800">
@@ -638,7 +610,7 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Amro</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400">Amro</span>
               <span className="text-white">Hendawi</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">

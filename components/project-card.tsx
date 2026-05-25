@@ -29,11 +29,11 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
       className="group"
     >
       <div
-        className="relative h-full overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300 group-hover:border-purple-500/50"
+        className="relative h-full overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300 group-hover:border-indigo-500/50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+        <div className="absolute -inset-1 bg-indigo-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
 
         {/* Clickable overlay for the entire card except buttons */}
         <Link href={demoUrl} className="absolute inset-0 z-10">
@@ -42,7 +42,7 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
 
         <div className="relative h-full flex flex-col">
           <div className="relative overflow-hidden h-48">
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+            <div className="absolute inset-0 bg-indigo-500/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
             <img
               src={image || "/placeholder.svg"}
               alt={title}
@@ -72,7 +72,7 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
               </Button>
               <Button
                 size="sm"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
+                className="bg-indigo-600 hover:bg-indigo-500 border-0"
                 asChild
               >
                 <Link href={demoUrl} target="_blank" rel="noopener noreferrer">

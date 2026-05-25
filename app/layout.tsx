@@ -4,8 +4,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Amro Hendawi - Senior ML/AI Engineer & Team Lead',
-  description: 'Senior ML/AI Engineer with 5+ years experience in GenAI, multi-agent systems, and enterprise AI solutions. Based in Berlin, Germany.',
+  title: 'Amro Hendawi - Senior AI Architect',
+  description: 'Senior AI Architect with 6+ years engineering distributed AI systems across healthcare, automotive, and logistics. Multi-agent systems, hybrid semantic search, MLOps. Based in Berlin, Germany.',
   generator: 'Next.js',
 }
 

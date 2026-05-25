@@ -32,13 +32,13 @@ export function BlogCard({
 }: BlogCardProps) {
   return (
     <motion.article
-      className="group relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300 hover:border-purple-500/50"
+      className="group relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 transition-all duration-300 hover:border-indigo-500/50"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+      <div className="absolute -inset-1 bg-indigo-500/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
 
       {/* Clickable overlay for the entire card */}
       {externalUrl && (
@@ -73,7 +73,7 @@ export function BlogCard({
             <span>{readTime}</span>
           </div>
 
-          <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
+          <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-300 transition-colors">
             {title}
           </h3>
 
@@ -86,7 +86,7 @@ export function BlogCard({
               <Badge
                 key={tag}
                 variant="secondary"
-                className="bg-zinc-700/50 text-zinc-300 hover:bg-purple-500/20 transition-colors"
+                className="bg-zinc-700/50 text-zinc-300 hover:bg-indigo-500/20 transition-colors"
               >
                 {tag}
               </Badge>
@@ -106,7 +106,7 @@ export function BlogCard({
               <Link href={externalUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 <Button
                   size="sm"
-                  className="bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border-purple-500/30"
+                  className="bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border-indigo-500/30"
                   variant="outline"
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />

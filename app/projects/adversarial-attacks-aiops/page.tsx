@@ -17,7 +17,7 @@ export default function AdversarialAttacksProject() {
         </p>
         
         <div className="flex flex-wrap gap-2 mb-8">
-          <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+          <span className="px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-300 border border-indigo-500/15">
             AI Security
           </span>
           <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">

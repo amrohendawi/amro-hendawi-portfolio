@@ -61,9 +61,16 @@ export function CreativeHero() {
         this.density = Math.random() * 30 + 1
         this.distance = 0
 
-        // Create a gradient from purple to pink
-        const hue = Math.random() * 60 + 270 // 270-330 range for purples and pinks
-        this.color = `hsl(${hue}, 70%, 60%)`
+        // Indigo field with rare lime sparks — brand-aligned, calmer chroma
+        const isSpark = Math.random() < 0.06
+        if (isSpark) {
+          this.color = `hsl(95, 75%, 55%)` // lime spark, surgical
+        } else {
+          const hue = Math.random() * 30 + 218 // 218-248 indigo/slate-blue family
+          const sat = Math.random() * 20 + 45 // 45-65% lower chroma, calmer
+          const light = Math.random() * 15 + 50 // 50-65% varied depth
+          this.color = `hsl(${hue}, ${sat}%, ${light}%)`
+        }
       }
 
       update() {
@@ -151,7 +158,7 @@ export function CreativeHero() {
 
           if (distance < 30) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(180, 120, 255, ${0.2 - distance / 150})`
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.22 - distance / 150})` // indigo-500 web, restrained
             ctx.lineWidth = 0.5
             ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
             ctx.lineTo(particlesArray[j].x, particlesArray[j].y)

@@ -13,8 +13,8 @@ export default function IntentAwareConversationalAI() {
       {/* Hero Section */}
       <div className="relative mb-16">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-violet-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-violet-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" />
         </div>
 
         <div className="relative z-10">
@@ -31,7 +31,7 @@ export default function IntentAwareConversationalAI() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-300 to-indigo-400">
               Intent-Aware
             </span>
             <br />
@@ -52,7 +52,7 @@ export default function IntentAwareConversationalAI() {
           </div>
 
           <div className="flex gap-4">
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+            <Button className="bg-indigo-600 hover:bg-indigo-500 text-white">
               <Github className="h-4 w-4 mr-2" />
               View on GitHub
             </Button>
@@ -105,7 +105,7 @@ export default function IntentAwareConversationalAI() {
                   </p>
                 </div>
 
-                <div className="border-l-4 border-pink-500 pl-6">
+                <div className="border-l-4 border-lime-400 pl-6">
                   <h4 className="font-semibold text-white mb-2">Limitless Knowledge at Your Fingertips</h4>
                   <p>
                     Imagine a chatbot with the combined knowledge of Google and Bing! This system seamlessly 
@@ -115,7 +115,7 @@ export default function IntentAwareConversationalAI() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
+              <div className="bg-indigo-500/10 rounded-lg p-6 border border-indigo-500/15">
                 <p className="text-lg font-medium text-center">
                   🎯 <strong>30-50% improvement</strong> over existing models on BLEU, ROUGE, and F1 metrics
                 </p>
@@ -200,12 +200,12 @@ export default function IntentAwareConversationalAI() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-purple-500/10 rounded-lg p-4 border border-purple-500/20">
-                  <h4 className="font-semibold text-purple-300 mb-2">🧠 Shared Encoder</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15">
+                  <h4 className="font-semibold text-indigo-300 mb-2">🧠 Shared Encoder</h4>
                   <p className="text-sm">Processes input and creates hidden states for downstream tasks</p>
                 </div>
-                <div className="bg-pink-500/10 rounded-lg p-4 border border-pink-500/20">
-                  <h4 className="font-semibold text-pink-300 mb-2">🔀 Multiple Decoders</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15">
+                  <h4 className="font-semibold text-indigo-300 mb-2">🔀 Multiple Decoders</h4>
                   <p className="text-sm">Generate task-specific outputs for different conversation aspects</p>
                 </div>
                 <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20">
@@ -235,32 +235,32 @@ export default function IntentAwareConversationalAI() {
                 <table className="w-full text-sm border border-zinc-700 rounded-lg">
                   <thead className="bg-zinc-800">
                     <tr>
-                      <th className="px-4 py-3 text-left text-purple-300">Task</th>
-                      <th className="px-4 py-3 text-left text-pink-300">Dataset</th>
+                      <th className="px-4 py-3 text-left text-indigo-300">Task</th>
+                      <th className="px-4 py-3 text-left text-indigo-300">Dataset</th>
                       <th className="px-4 py-3 text-left text-blue-300">Description</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-zinc-700">
                     <tr className="bg-zinc-900/30">
                       <td className="px-4 py-3 font-medium" rowSpan={2}>Reasoning and intent-detection</td>
-                      <td className="px-4 py-3 text-purple-300 font-medium">ConvAI3</td>
+                      <td className="px-4 py-3 text-indigo-300 font-medium">ConvAI3</td>
                       <td className="px-4 py-3">Human-human conversations with clarifying questions</td>
                     </tr>
                     <tr className="bg-zinc-900/30">
-                      <td className="px-4 py-3 text-purple-300 font-medium">QReCC</td>
+                      <td className="px-4 py-3 text-indigo-300 font-medium">QReCC</td>
                       <td className="px-4 py-3">End-to-end open-domain QA dataset</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium" rowSpan={3}>Question Answering</td>
-                      <td className="px-4 py-3 text-pink-300 font-medium">NQ</td>
+                      <td className="px-4 py-3 text-indigo-300 font-medium">NQ</td>
                       <td className="px-4 py-3">Open Domain Question Answering dataset</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 text-pink-300 font-medium">TriviaQA</td>
+                      <td className="px-4 py-3 text-indigo-300 font-medium">TriviaQA</td>
                       <td className="px-4 py-3">100K question-answer pairs from 65K Wikipedia documents</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-3 text-pink-300 font-medium">QuAC</td>
+                      <td className="px-4 py-3 text-indigo-300 font-medium">QuAC</td>
                       <td className="px-4 py-3">Modeling information seeking dialog understanding</td>
                     </tr>
                     <tr className="bg-zinc-900/30">
@@ -277,7 +277,7 @@ export default function IntentAwareConversationalAI() {
                 </table>
               </div>
 
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
+              <div className="bg-indigo-500/10 rounded-lg p-6 border border-indigo-500/15">
                 <h4 className="font-semibold text-white mb-4">🤖 Synthetic Data Generation Process</h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
@@ -285,7 +285,7 @@ export default function IntentAwareConversationalAI() {
                     <p><strong>Leveraging GPT-3:</strong> Few examples from ConvAI3 dataset were fed into GPT-3 to establish reference points</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="bg-pink-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">2</span>
+                    <span className="bg-violet-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">2</span>
                     <p><strong>Customizing QReCC Data:</strong> GPT-3 generated corresponding entries mirroring ConvAI3 structure</p>
                   </div>
                   <div className="flex items-start gap-3">
@@ -359,12 +359,12 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-purple-500/10 rounded-lg p-4 border border-purple-500/20 text-center">
-                  <h4 className="font-bold text-2xl text-purple-300">14 hours</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15 text-center">
+                  <h4 className="font-bold text-2xl text-indigo-300">14 hours</h4>
                   <p className="text-sm">Training time on 1x A5000 GPU</p>
                 </div>
-                <div className="bg-pink-500/10 rounded-lg p-4 border border-pink-500/20 text-center">
-                  <h4 className="font-bold text-2xl text-pink-300">24GB</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15 text-center">
+                  <h4 className="font-bold text-2xl text-indigo-300">24GB</h4>
                   <p className="text-sm">Dedicated GPU memory</p>
                 </div>
                 <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20 text-center">
@@ -502,13 +502,13 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
             <SectionHeading title="Qualitative Evaluation" subtitle="Real-world dialogue demonstrations" />
             
             <div className="space-y-8 text-zinc-300">
-              <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-6 border border-purple-500/20">
+              <div className="bg-indigo-500/10 rounded-lg p-6 border border-indigo-500/15">
                 <h4 className="font-semibold text-white mb-4">Demo 1: Cached Intent Modeling and Knowledge Expansion</h4>
                 <p className="text-sm text-zinc-400 mb-4">Dialogue with geo-location = Germany</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <h5 className="font-medium text-purple-300">Conversational Search Interface</h5>
+                    <h5 className="font-medium text-indigo-300">Conversational Search Interface</h5>
                     <div className="space-y-2">
                       <div className="bg-zinc-800/50 rounded-lg p-2">
                         <Image
@@ -554,7 +554,7 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
                   </div>
                   
                   <div className="space-y-3">
-                    <h5 className="font-medium text-pink-300">Search Server Backend</h5>
+                    <h5 className="font-medium text-indigo-300">Search Server Backend</h5>
                     <div className="space-y-2">
                       <div className="bg-zinc-800/50 rounded-lg p-2">
                         <Image
@@ -611,8 +611,8 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
                       <h6 className="font-medium text-green-300 text-sm">🧠 Knowledge Expansion</h6>
                       <p className="text-xs">System fetched and provided relevant Berlin Wall information</p>
                     </div>
-                    <div className="bg-purple-500/10 rounded-lg p-3 border border-purple-500/20">
-                      <h6 className="font-medium text-purple-300 text-sm">💾 Cached Intent</h6>
+                    <div className="bg-indigo-500/10 rounded-lg p-3 border border-indigo-500/15">
+                      <h6 className="font-medium text-indigo-300 text-sm">💾 Cached Intent</h6>
                       <p className="text-xs">Repeated queries understood without re-clarification</p>
                     </div>
                   </div>
@@ -694,7 +694,7 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
                       <h6 className="font-medium text-orange-300 text-sm">🔄 Disambiguation</h6>
                       <p className="text-xs">User provided clarification to correct AI's initial understanding</p>
                     </div>
-                    <div className="bg-cyan-500/10 rounded-lg p-3 border border-cyan-500/20">
+                    <div className="bg-cyan-500/10 rounded-lg p-3 border border-cyan-500/15">
                       <h6 className="font-medium text-cyan-300 text-sm">🎯 Adaptive Understanding</h6>
                       <p className="text-xs">AI successfully adapted search query based on user correction</p>
                     </div>
@@ -747,8 +747,8 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
                   <table className="w-full text-sm border border-zinc-700 rounded-lg">
                     <thead className="bg-zinc-800">
                       <tr>
-                        <th className="px-3 py-3 text-left text-purple-300">Model</th>
-                        <th className="px-3 py-3 text-center text-pink-300">Precision</th>
+                        <th className="px-3 py-3 text-left text-indigo-300">Model</th>
+                        <th className="px-3 py-3 text-center text-indigo-300">Precision</th>
                         <th className="px-3 py-3 text-center text-blue-300">Recall</th>
                         <th className="px-3 py-3 text-center text-green-300">F1</th>
                         <th className="px-3 py-3 text-center text-yellow-300">Perplexity</th>
@@ -784,7 +784,7 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
                         <td className="px-3 py-3 text-center">0.05</td>
                         <td className="px-3 py-3 text-center">0.229</td>
                       </tr>
-                      <tr className="bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+                      <tr className="bg-indigo-500/15">
                         <td className="px-3 py-3 font-bold">Ours (400M)</td>
                         <td className="px-3 py-3 text-center font-bold">0.122</td>
                         <td className="px-3 py-3 text-center">0.416</td>
@@ -814,12 +814,12 @@ init_model: zoo:seeker/r2c2_blenderbot_400M/model`}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-purple-500/10 rounded-lg p-4 border border-purple-500/20 text-center">
-                  <h4 className="font-bold text-2xl text-purple-300">+107%</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15 text-center">
+                  <h4 className="font-bold text-2xl text-indigo-300">+107%</h4>
                   <p className="text-sm">F1 Score improvement over BB2</p>
                 </div>
-                <div className="bg-pink-500/10 rounded-lg p-4 border border-pink-500/20 text-center">
-                  <h4 className="font-bold text-2xl text-pink-300">+55%</h4>
+                <div className="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/15 text-center">
+                  <h4 className="font-bold text-2xl text-indigo-300">+55%</h4>
                   <p className="text-sm">F1 Score improvement over Seeker</p>
                 </div>
                 <div className="bg-blue-500/10 rounded-lg p-4 border border-blue-500/20 text-center">

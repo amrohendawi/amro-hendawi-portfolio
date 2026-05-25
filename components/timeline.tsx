@@ -5,31 +5,39 @@ import { useMobile } from "@/hooks/use-mobile"
 
 const experiences = [
   {
-    title: "Senior AI Engineering Lead – Consultant",
-    company: "KI Reply GmbH",
-    period: "Sep 2024 - Present",
+    title: "Senior AI Architect",
+    company: "mama health technologies GmbH",
+    period: "Apr 2026 - Present",
     description:
-      "Leading advanced AI consulting projects, focusing on enterprise GenAI solutions and multi-agent system architectures for DAX 40 clients. Deployed AI agents on Kubernetes for DHL, reducing tech debt resolution by 60%. Co-designed production-ready multi-agent orchestration platform.",
+      "Architecting a multi-agent medical assistant platform for rare chronic disease communities across EU & US, built on LiteLLM, Pydantic, Claude SDK, and DSPy. Leading a patient-side AI companion that builds disease-progression models from structured symptom data, plus a pharma-side analytics assistant supporting partners including Bayer. Designing Hybrid Search pipelines on Qdrant (BM25 + dense Gemini embeddings via HNSW, RRF fusion, HyDE) evaluated with F1, MRR, and nDCG.",
   },
   {
-    title: "ML/AI Engineering Team Lead – Consultant",
-    company: "ML Reply",
-    period: "Jul 2023 - Aug 2024",
+    title: "Senior AI Solutions Architect",
+    company: "str8con GmbH (Remote)",
+    period: "Sep 2025 - Mar 2026",
     description:
-      "Led modernization of Porsche's vehicle diagnostics system (150K+ requests/day, €300K/year savings). Improved BMW's in-car recommender system using LLMs for contextual personalization. Built RAG pipelines for 500+ page documents deployed via Azure AI Studio.",
+      "Led a team building an Arbeitszeugnisgenerator on ServiceNow HRSD + Now Assist for a German Mittelstand enterprise. Initiated a multi-language AI voice assistant integrating Twilio with ServiceNow Now Assist Voice for a major Frankfurt company. Architected a multi-tenant GenAI solution targeting €50K/year operational savings across 5+ clients.",
+  },
+  {
+    title: "ML/AI Engineering → Senior AI Engineering Lead",
+    company: "Reply GmbH (ML Reply / KI Reply)",
+    period: "Jul 2023 - Aug 2025",
+    description:
+      "Delivered enterprise AI to Porsche, BMW, DHL, Vodafone, Red Bull, and Siemens. Project Lead on Porsche's vehicle diagnostics modernization (team of 10, 30K+ workshops in 16 languages, 150K+ daily requests, €300K/year savings, 99.996% behavioral parity). Co-architected a multi-agent orchestration platform on AWS later sold to BMW. Built a LangGraph agent harness orchestrating 50+ coding agents across 200+ DHL repos, cutting tech-debt resolution by 60%. Delivered a GDPR-compliant Medical Conversational Agent processing 10TB+ clinical data. Promoted to Senior in Sep 2024.",
   },
   {
     title: "AI/ML Engineer",
     company: "Fraunhofer-Gesellschaft - Data Analytics",
     period: "Jun 2022 - Jul 2023",
     description:
-      "Led the design and implementation of a patented semantic search solution in a cooperation with major research centers",
+      "Led design and implementation of a semantic search solution with major research centers, deployed via CI/CD to private cloud supporting 1,000+ active users. Built an MLFlow pipeline training and serving 16+ AI models behind a secure JWT endpoint, cutting deployment time by 50%.",
   },
   {
     title: "Full-Stack Developer",
     company: "Fraunhofer FOKUS",
-    period: "Nov 2020 - Jun 2022",
-    description: "Delivered public IT sector web apps with advanced data visualizations (React, D3.js). Led a patented semantic search engine project with CI/CD and secure cloud deployment.",
+    period: "Nov 2020 - May 2022",
+    description:
+      "Built interactive web apps for the public IT sector visualizing global research datasets (React, D3.js, FastAPI). Formulated a custom Rasa + BERT pipeline for multilingual government queries achieving 15% higher intent accuracy vs Dialogflow.",
   },
 ]
 
@@ -56,8 +64,8 @@ export function Timeline() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-purple-500/50">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200" />
+            <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-indigo-500/50">
+              <div className="absolute -inset-1 bg-indigo-500/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200" />
 
               <div className="relative">
                 <h3 className="text-xl font-bold">{experience.title}</h3>
@@ -72,7 +80,7 @@ export function Timeline() {
           {!isMobile && (
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
               <motion.div
-                className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 z-10 flex items-center justify-center"
+                className="w-6 h-6 rounded-full bg-indigo-600 z-10 flex items-center justify-center"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.3 }}
